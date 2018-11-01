@@ -26,6 +26,7 @@ class TestingConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_TEST_URL')  # new
     BCRYPT_LOG_ROUNDS = 4
 
+
 class ProductionConfig(BaseConfig):
     """Production configuration"""
     DEBUG = False

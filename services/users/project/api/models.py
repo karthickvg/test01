@@ -1,7 +1,10 @@
 from sqlalchemy.sql import func
 
+
 from project import db, bcrypt
 from flask import current_app
+from alembic import op
+import sqlalchemy as sa
 
 
 class User(db.Model):
@@ -17,7 +20,9 @@ class User(db.Model):
     def __init__(self, username, email, password):
         self.username = username
         self.email = email
-        self.password = bcrypt.generate_password_hash(password, current_app.config.get('BCRYPT_LOG_ROUNDS')).decode()
+        self.password = bcrypt.generate_password_hash(
+            password, current_app.config.get('BCRYPT_LOG_ROUNDS')
+        ).decode()
 
     def to_json(self):
         return {
