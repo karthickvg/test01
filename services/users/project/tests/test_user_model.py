@@ -3,13 +3,11 @@ import unittest
 from project import db
 from project.api.models import User
 from project.tests.base import BaseTestCase
-from project.tests.utils import add_user
-
 from sqlalchemy.exc import IntegrityError
+from project.tests.utils import add_user
 
 
 class TestUserModel(BaseTestCase):
-
     def test_add_user(self):
         user = add_user('justatest', 'test@test.com', 'test')
         self.assertTrue(user.id)
@@ -31,7 +29,7 @@ class TestUserModel(BaseTestCase):
     def test_add_user_duplicate_email(self):
         add_user('justatest', 'test@test.com', 'greaterthaneight')
         duplicate_user = User(
-            username='justanothertest',
+            username='justatest2',
             email='test@test.com',
             password='greaterthaneight'
         )

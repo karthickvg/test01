@@ -21,7 +21,9 @@ def create_app(script_info=None):
     # instantiate the app
     app = Flask(__name__)
 
+    # enable CORS
     CORS(app)
+    # new
 
     # set config
     app_settings = os.getenv('APP_SETTINGS')
@@ -36,6 +38,8 @@ def create_app(script_info=None):
     # register blueprints
     from project.api.users import users_blueprint
     app.register_blueprint(users_blueprint)
+    from project.api.auth import auth_blueprint
+    app.register_blueprint(auth_blueprint)
 
     # shell context for flask cli
     @app.shell_context_processor

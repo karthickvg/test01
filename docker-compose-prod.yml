@@ -17,7 +17,6 @@ services:
       - DATABASE_TEST_URL=postgres://postgres:postgres@users-db:5432/users_test
     depends_on: # new
       - users-db
-      
   users-db: # new
     build:
       context: ./services/users/project/db
@@ -29,7 +28,6 @@ services:
       - POSTGRES_PASSWORD=postgres
 
   nginx:
-    container_name: nginx
     build:
       context: ./services/nginx
       dockerfile: Dockerfile-prod

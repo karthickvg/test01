@@ -18,7 +18,7 @@ class DevelopmentConfig(BaseConfig):
     """Development configuration"""
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')  # new
     DEBUG_TB_ENABLED = True
-    BCRYPT_LOG_ROUNDS = 4  # new
+    BCRYPT_LOG_ROUNDS = 4
     # pass
 
 
