@@ -9,6 +9,8 @@ import About from './components/About';
 import NavBar from './components/NavBar';
 import Form from './components/Form';
 import Logout from './components/Logout';
+import UserStatus from './components/UserStatus';
+
 
 class App extends Component {
 	constructor() {
@@ -45,7 +47,8 @@ class App extends Component {
 		axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
 		// .then((res) => { console.log(res); })
 		// .then((res) => { console.log(res.data.data); })
-		.then((res) => { this.setState({ users: res.data.data.users }); })
+		.then((res) => {
+			this.setState({ users: res.data.data.users }); })
 		.catch((err) => { console.log(err); });
 	}
 
@@ -110,6 +113,7 @@ class App extends Component {
 			<div>
 				<NavBar
 					title={this.state.title}
+						isAuthenticated={this.state.isAuthenticated}
 				/>
 				<div className="container">
 					<div className="row">
@@ -155,6 +159,11 @@ class App extends Component {
 									</div>
 								)} />
 								<Route exact path='/about' component={About}/>
+								<Route exact path='/status' render={() => (
+									<UserStatus
+										isAuthenticated={this.state.isAuthenticated}
+									/>
+								)} />
 							</Switch>
 						</div>
 					</div>
