@@ -13,6 +13,7 @@ test('NavBar renders properly', () => {
 	expect(element.length).toBe(1);
 	expect(element.get(0).props.children).toBe(title);
 });
+
 test('NavBar renders a snapshot properly', () => {
 	const tree = renderer.create(
 		<Router location="/"><NavBar title={title}/></Router>

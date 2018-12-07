@@ -44,4 +44,5 @@ const NavBar = (props) => (
 		</Navbar.Collapse>
 	</Navbar>
 )
+
 export default NavBar;
