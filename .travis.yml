@@ -28,7 +28,7 @@ before_script:
   - npm install
 
 script:
-  - bash test.sh $TRAVIS_BRANCH
+  - bash test.sh
 
 after_success:
   - bash ./docker-push.sh
